@@ -1,8 +1,11 @@
 package com.example.deckofcards
 
+import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.ResourceManagerInternal.get
+import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
