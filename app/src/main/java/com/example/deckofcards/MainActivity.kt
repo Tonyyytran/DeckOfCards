@@ -3,7 +3,9 @@ package com.example.deckofcards
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.widget.ResourceManagerInternal.get
 import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,12 +29,22 @@ class MainActivity : AppCompatActivity() {
         R.drawable.kc, R.drawable.kd, R.drawable.kh, R.drawable.ks
         )
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         cardDeck.shuffle()
         cardButton.setOnClickListener {
             drawCard()
+        }
+        resetButton.setOnLongClickListener{
+            resetDeck()
+        }
+        resetButton.setOnClickListener {
+            var toast = Toast.makeText(this, "Hold to reset deck", Toast.LENGTH_SHORT)
+            toast.setGravity(Gravity.TOP, 0, 200)
+            toast.show()
         }
     }
 
@@ -70,5 +82,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         countText.text = "$count/52"
+    }
+
+    private fun resetDeck(): Boolean {
+        count = 0
+        cardDeck.shuffle()
+        cardButton.setBackgroundResource(R.drawable.back)
+        lastCardImage.visibility = View.GONE
+        secondLastCardImage.visibility = View.GONE
+        thirdLastCardImage.visibility = View.GONE
+        return true
     }
 }
