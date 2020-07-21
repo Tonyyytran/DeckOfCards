@@ -10,11 +10,12 @@
 
     <Button
         android:id="@+id/cardButton"
-        android:layout_width="match_parent"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="450dp"
         android:background="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_height="425dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/lastCardImage"
@@ -51,11 +52,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0/52"
-        android:textSize="40sp"
         android:textColor="@color/colorCount"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@id/thirdLastCardImage"
+        app:layout_constraintStart_toEndOf="@+id/thirdLastCardImage"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/thirdLastCardImage"
+        app:layout_constraintTop_toBottomOf="@id/countText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
