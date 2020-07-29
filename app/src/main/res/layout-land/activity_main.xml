@@ -9,57 +9,108 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/cardButton"
-        android:layout_width="300dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="225dp"
+        android:layout_height="337.5dp"
+        app:cardCornerRadius="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <ImageView
+            android:id="@+id/cardButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleX="1.05"
+            android:scaleY="1.05"
+            android:src="@drawable/back" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <LinearLayout
+    android:layout_width="300dp"
+    android:layout_height="140dp"
+    android:layout_marginLeft="16dp"
+    app:layout_constraintStart_toEndOf="@id/cardView"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/lastCardImage_holder"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@drawable/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_weight="1"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp">
 
-    <ImageView
-        android:id="@+id/lastCardImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/cardButton"
-        style="@style/horizontalPrevCard" />
+        <ImageView
+            android:id="@+id/lastCardImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/back" />
 
-    <ImageView
-        android:id="@+id/secondLastCardImage"
-        style="@style/horizontalPrevCard"
-        android:layout_above="@id/thirdLastCardImage"
-        android:layout_below="@id/lastCardImage"
-        android:layout_toRightOf="@id/cardButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/lastCardImage" />
+    </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:id="@+id/thirdLastCardImage"
-        style="@style/horizontalPrevCard"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/cardButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/cardButton"
-        app:layout_constraintStart_toEndOf="@+id/secondLastCardImage" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/secondLastCardImage_holder"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/secondLastCardImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/back" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/thirdLastCardImage_holder"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/thirdLastCardImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/back" />
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
 
     <TextView
         android:id="@+id/countText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="38dp"
         android:text="0/52"
-        android:textSize="40sp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_margin="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/resetButton"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/black"
+        android:drawableLeft="@drawable/ic_refresh"
+        android:drawablePadding="6dp"
         android:text="Reset"
-        android:textSize="24sp"
+        app:cornerRadius="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/countText"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
