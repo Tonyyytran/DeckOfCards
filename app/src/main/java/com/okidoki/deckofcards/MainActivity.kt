@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         supportActionBar?.hide()
         model = ViewModelProviders.of(this).get(DeckViewModel::class.java)
         model.getDeckIndex().observe(this,Observer<Int>{
@@ -46,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         when (model.getDeckIndex().value) {
             0 -> {
                 cardButton.setImageResource(R.drawable.back)
-
                 lastCardImage_holder.visibility = View.INVISIBLE
                 secondLastCardImage_holder.visibility = View.INVISIBLE
                 thirdLastCardImage_holder.visibility = View.INVISIBLE

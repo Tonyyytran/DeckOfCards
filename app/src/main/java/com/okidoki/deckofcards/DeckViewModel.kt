@@ -1,5 +1,6 @@
 package com.okidoki.deckofcards
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,7 +24,9 @@ class DeckViewModel : ViewModel() {
         R.drawable.qc, R.drawable.qd, R.drawable.qh, R.drawable.qs,
         R.drawable.kc, R.drawable.kd, R.drawable.kh, R.drawable.ks
     )
-    private val cardIndex: MutableLiveData<Int>  = MutableLiveData<Int>()
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    val cardIndex: MutableLiveData<Int>  = MutableLiveData<Int>()
 
     init {
         resetDeck()
