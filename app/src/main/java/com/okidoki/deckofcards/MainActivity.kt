@@ -43,21 +43,23 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setCards(index: Int) {
-        countText.text = String.format("${index}/52")
+        countText.text = String.format("${index + 1}/52")
         when (model.getDeckIndex().value) {
-            0 -> {
+            -1 -> {
                 cardButton.setImageResource(R.drawable.back)
+
+                lastCardImage_holder.visibility = View.INVISIBLE
+                secondLastCardImage_holder.visibility = View.INVISIBLE
+                thirdLastCardImage_holder.visibility = View.INVISIBLE
+            }
+            0 -> {
+                cardButton.setImageResource(model.getCardButton())
+
                 lastCardImage_holder.visibility = View.INVISIBLE
                 secondLastCardImage_holder.visibility = View.INVISIBLE
                 thirdLastCardImage_holder.visibility = View.INVISIBLE
             }
             1 -> {
-                cardButton.setImageResource(model.getCardButton())
-                lastCardImage_holder.visibility = View.INVISIBLE
-                secondLastCardImage_holder.visibility = View.INVISIBLE
-                thirdLastCardImage_holder.visibility = View.INVISIBLE
-            }
-            2 -> {
                 cardButton.setImageResource(model.getCardButton())
                 lastCardImage.setImageResource(model.getLastCard())
 
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 secondLastCardImage_holder.visibility = View.INVISIBLE
                 thirdLastCardImage_holder.visibility = View.INVISIBLE
             }
-            3 -> {
+            2 -> {
                 cardButton.setImageResource(model.getCardButton())
                 lastCardImage.setImageResource(model.getLastCard())
                 secondLastCardImage.setImageResource(model.getSecondLastCard())

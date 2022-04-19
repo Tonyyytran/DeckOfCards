@@ -9,7 +9,7 @@ class DeckViewModel : ViewModel() {
 
     private val totalCards = 52
 
-    private val cardDeck = arrayListOf<Int>(
+    private val cardDeck = arrayListOf(
         R.drawable.ac, R.drawable.ad, R.drawable.ah, R.drawable.aspade,
         R.drawable.twoc, R.drawable.twod, R.drawable.twoh, R.drawable.twos,
         R.drawable.threec, R.drawable.threed, R.drawable.threeh, R.drawable.threes,
@@ -26,7 +26,7 @@ class DeckViewModel : ViewModel() {
     )
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-    val cardIndex: MutableLiveData<Int>  = MutableLiveData<Int>()
+    val cardIndex: MutableLiveData<Int>  = MutableLiveData()
 
     init {
         resetDeck()
@@ -37,7 +37,7 @@ class DeckViewModel : ViewModel() {
     }
 
     fun resetDeck(){
-        cardIndex.value = 0
+        cardIndex.value = -1
         cardDeck.shuffle()
     }
 
@@ -66,7 +66,5 @@ class DeckViewModel : ViewModel() {
     fun getThirdLastCard() : Int {
         return cardDeck[cardIndex.value!! - 3]
     }
-
-
 
 }
